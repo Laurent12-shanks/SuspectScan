@@ -1,0 +1,36 @@
+{
+    "fichier": {
+        "nom": "suspect.py",
+        "taille": 202,
+        "sha256": "bed3d75baf5eb84cacea96feef5db46f68ca7e83f61817a3a5e211a874fc8070"
+    },
+    "indices": [
+        {
+            "indice": "eval_exec",
+            "points": 4,
+            "detail": "Trouvé : ['exec']"
+        },
+        {
+            "indice": "system_calls",
+            "points": 4,
+            "detail": "Trouvé : ['os.system']"
+        },
+        {
+            "indice": "network",
+            "points": 3,
+            "detail": "Trouvé : ['socket']"
+        },
+        {
+            "indice": "imports",
+            "points": 2,
+            "detail": "Imports suspects : ['os', 'base64', 'socket']"
+        },
+        {
+            "indice": "COMBINAISON",
+            "points": 5,
+            "detail": "réseau + commandes système ensemble"
+        }
+    ],
+    "score": 18,
+    "verdict": "🔴 Highly Suspicious"
+}
