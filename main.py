@@ -3,9 +3,9 @@
 import argparse
 import os
 from utils.file_loader import load_file, get_file_info
-from utils.analyzer    import run_all
-from utils.combiner    import check_combinations
-from utils.scorer      import compute_score, get_verdict, export_json
+from utils.analyzer  import run_all
+from utils.combiner import check_combinations
+from utils.scorer  import compute_score, get_verdict, export_json
 
 
 def parse_args():
