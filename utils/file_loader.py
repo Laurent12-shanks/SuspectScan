@@ -29,5 +29,3 @@ def get_file_info(path:str ) -> dict:
     }
 
     return info
-
-print(get_file_info("tests/test1.py"))
