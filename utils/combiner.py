@@ -14,7 +14,7 @@ def check_combinations(results: dict):
         bonus    = combo["bonus"]
         label    = combo["label"]
 
-        # Vérifie si TOUS les indices de la combinaison sont détectés
+        # Vérifie si tous les indices de la combinaison sont détectés
         tous_detectes = all(
             results.get(indice, {}).get("detected", False)
             for indice in indices
