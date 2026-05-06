@@ -1,5 +1,5 @@
 # main.py
-
+import platform
 import argparse
 import os
 from utils.file_loader import load_file, get_file_info
@@ -8,20 +8,87 @@ from utils.combiner import check_combinations
 from utils.scorer  import compute_score, get_verdict, export_json
 
 
+def clear_screen():
+    """Efface le terminal selon l'OS."""
+    if platform.system() == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear") 
+
+# def parse_args():
+#     """Gère les arguments de la ligne de commande."""
+#     parser = argparse.ArgumentParser(
+#         description="SuspectScan — Détecteur de comportement suspect"
+#     )
+#     parser.add_argument(
+#         "--file",
+#         required=True,
+#         help="Chemin du fichier à analyser (ex: tests/fichier_suspect.py)"
+#     )
+#     parser.add_argument(
+#         "--output",
+#         default="rapports/rapport.json",
+#         help="Chemin du rapport JSON (défaut: rapports/rapport.json)"
+#     )
+
+#     parser.add_argument(
+#         "-h",
+#         default="Affiche le manuel d'aide",
+#         help=" -h /--help   Affiche ce manuel "+
+#         "--file  Chemin du fichier à analyser (ex: file_suspect.py)"+
+#         "--output Chemin du rapport JSON (défaut: rapports/rapport.json)"
+#     )
+
+#     parser.add_argument(
+#         "--help",
+#         default="Affiche le manuel d'aide",
+#         help=" -h /--help   Affiche ce manuel " +
+#         "--file  Chemin du fichier à analyser (ex: file_suspect.py)"+
+#         "--output Chemin du rapport JSON (défaut: rapports/rapport.json)"
+#     )
+#     return parser.parse_args()
+
 def parse_args():
     """Gère les arguments de la ligne de commande."""
     parser = argparse.ArgumentParser(
-        description="SuspectScan — Détecteur de comportement suspect"
+        description="""
+        SuspectScan — Détecteur de comportement suspect
+        ------------------------------------------------
+        Usage :
+        python main.py --file fichier.py
+        python main.py --file fichier.py --output rapport.json
+
+        Arguments :
+        --file    Chemin du fichier à analyser (obligatoire)
+        --output  Chemin du rapport JSON (défaut: rapports/rapport.json)
+        """,
+        formatter_class=argparse.RawTextHelpFormatter
     )
     parser.add_argument(
         "--file",
         required=True,
         help="Chemin du fichier à analyser (ex: tests/fichier_suspect.py)"
     )
+
     parser.add_argument(
         "--output",
         default="rapports/rapport.json",
         help="Chemin du rapport JSON (défaut: rapports/rapport.json)"
+    )
+
+    parser.add_argument(          # ← ajoute ici
+        "-v", "--version",
+        action="version",
+        version="""
+    ╔══════════════════════════════════════╗
+    ║   SuspectScan v1.0                   ║
+    ║   Détecteur de comportement suspect  ║
+    ╠══════════════════════════════════════╣
+    ║  Usage:                              ║
+    ║    python main.py --file fichier.py  ║
+    ║    python main.py --help             ║
+    ╚══════════════════════════════════════╝
+        """
     )
     return parser.parse_args()
 
@@ -55,6 +122,7 @@ def afficher_resultats(file_info, details, score, verdict):
 
 
 def main():
+    clear_screen()
     args = parse_args()
 
     # Vérification du fichier
