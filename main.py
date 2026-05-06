@@ -15,39 +15,6 @@ def clear_screen():
     else:
         os.system("clear") 
 
-# def parse_args():
-#     """Gère les arguments de la ligne de commande."""
-#     parser = argparse.ArgumentParser(
-#         description="SuspectScan — Détecteur de comportement suspect"
-#     )
-#     parser.add_argument(
-#         "--file",
-#         required=True,
-#         help="Chemin du fichier à analyser (ex: tests/fichier_suspect.py)"
-#     )
-#     parser.add_argument(
-#         "--output",
-#         default="rapports/rapport.json",
-#         help="Chemin du rapport JSON (défaut: rapports/rapport.json)"
-#     )
-
-#     parser.add_argument(
-#         "-h",
-#         default="Affiche le manuel d'aide",
-#         help=" -h /--help   Affiche ce manuel "+
-#         "--file  Chemin du fichier à analyser (ex: file_suspect.py)"+
-#         "--output Chemin du rapport JSON (défaut: rapports/rapport.json)"
-#     )
-
-#     parser.add_argument(
-#         "--help",
-#         default="Affiche le manuel d'aide",
-#         help=" -h /--help   Affiche ce manuel " +
-#         "--file  Chemin du fichier à analyser (ex: file_suspect.py)"+
-#         "--output Chemin du rapport JSON (défaut: rapports/rapport.json)"
-#     )
-#     return parser.parse_args()
-
 def parse_args():
     """Gère les arguments de la ligne de commande."""
     parser = argparse.ArgumentParser(
