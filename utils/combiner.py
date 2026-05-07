@@ -2,7 +2,7 @@
 
 from config import COMBINATIONS
 
-def check_combinations(results: dict):
+def check_combinations(results: dict)->list :
     """
     Vérifie les combinaisons aggravantes entre indices.
     Si deux indices dangereux sont détectés ensemble → bonus de points.

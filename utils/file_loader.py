@@ -4,7 +4,7 @@
 import os
 import hashlib
 
-def load_file(path:str ) ->str :
+def load_file(path:str ) ->str|None :
 
     if not os.path.exists(path):
         print(f"[ERREUR] Fichier introuvable : {path}")
