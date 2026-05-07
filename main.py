@@ -92,12 +92,10 @@ def main():
     clear_screen()
     args = parse_args()
 
-    # Vérification du fichier
     if not os.path.exists(args.file):
         print(f"[ERREUR] Fichier introuvable : {args.file}")
         return
 
-    # Étape 1 — Chargement
     print(f"\n[*] Analyse de : {args.file}")
     content   = load_file(args.file)
     file_info = get_file_info(args.file)
@@ -105,22 +103,16 @@ def main():
     if content is None:
         return
 
-    # Étape 2 — Détection des indices
     print("[*] Détection des indices...")
     results = run_all(content)
 
-    # Étape 3 — Combinaisons aggravantes
     print("[*] Vérification des combinaisons...")
     bonuses = check_combinations(results)
 
-    # Étape 4 — Score et verdict
     score, details = compute_score(results, bonuses)
     verdict        = get_verdict(score)
-
-    # Étape 5 — Affichage
     afficher_resultats(file_info, details, score, verdict)
 
-    # Étape 6 — Export JSON
     export_json(file_info, details, score, verdict, args.output)
 
 
