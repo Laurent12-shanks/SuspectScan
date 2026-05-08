@@ -9,13 +9,12 @@ from utils.scorer  import compute_score, get_verdict, export_json
 
 
 def clear_screen():
-    """Efface le terminal selon l'OS."""
     if platform.system() == "Windows":
         os.system("cls")
     else:
         os.system("clear") 
 
-def parse_args():
+def parse_args(): 
     """Gère les arguments de la ligne de commande."""
     parser = argparse.ArgumentParser(
         description="""
@@ -43,7 +42,7 @@ def parse_args():
         help="Chemin du rapport JSON (défaut: rapports/rapport.json)"
     )
 
-    parser.add_argument(          # ← ajoute ici
+    parser.add_argument(       
         "-v", "--version",
         action="version",
         version="""

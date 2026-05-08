@@ -46,7 +46,6 @@ def detect_base64(content :str) ->dict:
 
 
 def detect_network(content :str) ->dict:
-    """Détecte l'utilisation de bibliothèques réseau."""
     pattern = r'\b(socket|requests|urllib|httplib|ftplib)\b'
     matches = re.findall(pattern, content)
     return {
@@ -68,7 +67,6 @@ def detect_file_write(content:str) ->dict:
 
 
 def detect_imports(content :str) ->dict:  
-    """Détecte les imports suspects."""
     suspects = ["os", "sys", "subprocess", "ctypes", "base64", "socket"]
     found = []
     for lib in suspects:
